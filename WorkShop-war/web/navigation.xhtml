@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <ul class="layer1">
+                <h:panelGroup rendered="#{not userManager.loggedIn}">
+                    <li><h:link outcome="login" value="#{text.login}"/></li>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{userManager.loggedIn}">
+                    <li><h:link outcome="/manager/list" value="Zeige Workshops"/></li>
+                    <li><h:link outcome="/category/list" value="Zeige Kategorien"/></li>
+                    <li><h:link outcome="/user/workshops" value="Meine Workshops"/></li>
+                    <li>Item 2
+                        <ul class="layer2">
+                            <li>Item 2.1
+                                <ul class="layer3">
+                                    <li>Item 2.1.1</li>
+                                </ul>
+                            </li>
+                            <li>Item 2.2</li>
+                        </ul>
+                    </li>
+                    <li><h:commandLink action="#{userManager.logout()}" value="#{text.logout}"/></li>
+                </h:panelGroup>
+            </ul>
+        </h:form>
+    </h:body>
+</html>
+

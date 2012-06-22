@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/_template.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="content"> 
+        <h1>Aktuelle Workshops</h1>
+        <h:form>
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="2">Id</th>
+                        <th rowspan="2">Name</th>
+                        <th colspan="2">Teilnehmer</th>
+                        <th rowspan="2" title="Credit Points">CP</th>
+                        <th colspan="2">Zeitraum</th>
+                        <th rowspan="2" colspan="2"> </th>
+                    </tr>
+                    <tr>
+                        <th>max.</th>
+                        <th>aktuell</th>
+                        <th>von</th>
+                        <th>bis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ui:repeat value="#{listWorkshopsBean.workshops}" var="workshop">
+                        <tr>
+                            <td>${workshop.id}</td>
+                            <td>${workshop.name}</td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td>
+                                <h:commandLink action="#{deleteWorkshopBean.delete(workshop.id)}" value="DEL" />
+                            </td>
+                            <td>
+                                <h:commandLink action="#{editWorkshopBean.edit(workshop.id)}" value="EDIT" />
+                            </td>
+                        </tr>
+                    </ui:repeat>
+                </tbody>
+            </table>
+            <h:commandLink action="#{addWorkshopBean.form()}" value="Neuen Workshop hinzufügen" />
+        </h:form>
+    </ui:define>
+
+</ui:composition>

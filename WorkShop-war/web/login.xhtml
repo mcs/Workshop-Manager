@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/_template.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="content"> 
+        <h1>Workshop löschen</h1>
+        <h:form id="login">
+            <h:panelGrid columns="3">
+                <h:outputText value="#{text.username}" />
+                <h:inputText id="username" value="#{userManager.username}">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="username" errorClass="error" />
+                
+                <h:outputText value="#{text.password}" />
+                <h:inputText id="password" value="#{userManager.password}">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="password" errorClass="error" />
+                
+                <h:commandButton action="#{userManager.login()}" value="#{text.login}" />
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

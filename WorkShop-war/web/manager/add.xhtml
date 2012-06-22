@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/_template.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="content"> 
+        <h1>#{text.newWorkshop}</h1>
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel for="wsName" value="#{text.name}:" /> 
+                <h:inputText id="wsName" value="#{addWorkshopBean.workshop.name}">
+                    <f:validateRequired />
+                    <f:validateLength minimum="3" />
+                </h:inputText> 
+                <h:message for="wsName" errorClass="error" />
+                
+                <h:outputLabel for="wsPunkte" value="#{text.punkte}:" /> 
+                <h:inputText id="wsPunkte" value="#{addWorkshopBean.workshop.punkte}">
+                    <f:validateRequired />
+                </h:inputText> 
+                <h:message for="wsPunkte" errorClass="error" />
+
+                <h:commandButton value="#{text.add}" action="#{addWorkshopBean.add()}" />
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

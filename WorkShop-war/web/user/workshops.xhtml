@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/_template.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="content"> 
+        <h1>Aktuelle Workshops</h1>
+        <h:form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Workshop</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ui:repeat value="#{myWorkshopsBean.workshops}" var="workshop">
+                        <tr>
+                            <td>${workshop.id} ${workshop.name}</td>
+                        </tr>
+                    </ui:repeat>
+                </tbody>
+            </table>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

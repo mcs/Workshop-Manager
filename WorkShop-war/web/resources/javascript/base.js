@@ -1,0 +1,2 @@
+// Application namespace
+ws = {};
